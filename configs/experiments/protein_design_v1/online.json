@@ -1,0 +1,561 @@
+{
+  "schema_version": 1,
+  "protocol_version": 1,
+  "study": "protein_design_v1",
+  "workflow": "online",
+  "benchmark_root": "benchmarks/gfp_aav",
+  "run_dir": "runs/protein_design_v1/online",
+  "pretraining_dir": "runs/protein_design_v1/pretraining",
+  "results_dir": "results/protein_design_v1/online",
+  "task_order": [
+    "gfp_medium",
+    "gfp_hard",
+    "aav_medium",
+    "aav_hard"
+  ],
+  "seed_batches": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    [
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    [
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  ],
+  "budget": {
+    "total_oracle_calls": 2000,
+    "initial_archive_calls": 128,
+    "post_initial_batches": 234,
+    "acquisition_batch_size": 8,
+    "unconditional_samples": 2000
+  },
+  "gp": {
+    "feature_space": "onehot_tanimoto",
+    "outputscale": 1.0,
+    "learn_outputscale": false,
+    "noise_variance": null,
+    "fit_mean_and_noise_only": true,
+    "trainable_parameters": [
+      "constant_mean",
+      "likelihood_noise"
+    ],
+    "buffer_size": 128,
+    "buffer_mode": "recent",
+    "hyperparameter_refit_interval": 1,
+    "device": "cpu",
+    "dtype": "double",
+    "jitter": 0.0001
+  },
+  "tasks": {
+    "gfp_medium": {
+      "protein": "GFP",
+      "difficulty": "medium",
+      "sequence_length": 237,
+      "expected_training_size": 2828,
+      "accepted_observed_training_size": 2828,
+      "training_split": "benchmarks/gfp_aav/tasks/GFP/medium/base_seqs.csv",
+      "initial_archive": "benchmarks/gfp_aav/initial_archives/objects/deccef8745dd17aa1b0148664d7c12c06f6d6d133469df4a06e2e861db1458c5.jsonl.gz",
+      "initial_archive_sha256": "deccef8745dd17aa1b0148664d7c12c06f6d6d133469df4a06e2e861db1458c5",
+      "checkpoint": "configs/checkpoints/protein_evodiff_d3pm_38M_uniform_gfp237.pt.json",
+      "runtime_config": "configs/sample/protein_evodiff_d3pm_38M_uniform_gfp237.json",
+      "trust_region": {
+        "domain": "time",
+        "time_min": 0.0,
+        "time_init": 0.75,
+        "time_max": 0.99,
+        "expand": 1.5,
+        "shrink": 0.75,
+        "success_patience": 1,
+        "failure_patience": 1
+      },
+      "reward": {
+        "name": "gfp_aav_cnn_oracle",
+        "protein": "GFP",
+        "normalize": true,
+        "sequence_length": 237
+      }
+    },
+    "gfp_hard": {
+      "protein": "GFP",
+      "difficulty": "hard",
+      "sequence_length": 237,
+      "expected_training_size": 2426,
+      "accepted_observed_training_size": 2426,
+      "training_split": "benchmarks/gfp_aav/tasks/GFP/hard/base_seqs.csv",
+      "initial_archive": "benchmarks/gfp_aav/initial_archives/objects/c71047a3ccddde458ecbf8c638f1c63a90582282688ce110f7211acf2ef53730.jsonl.gz",
+      "initial_archive_sha256": "c71047a3ccddde458ecbf8c638f1c63a90582282688ce110f7211acf2ef53730",
+      "checkpoint": "configs/checkpoints/protein_evodiff_d3pm_38M_uniform_gfp237.pt.json",
+      "runtime_config": "configs/sample/protein_evodiff_d3pm_38M_uniform_gfp237.json",
+      "trust_region": {
+        "domain": "time",
+        "time_min": 0.0,
+        "time_init": 0.75,
+        "time_max": 0.99,
+        "expand": 1.5,
+        "shrink": 0.75,
+        "success_patience": 1,
+        "failure_patience": 1
+      },
+      "reward": {
+        "name": "gfp_aav_cnn_oracle",
+        "protein": "GFP",
+        "normalize": true,
+        "sequence_length": 237
+      }
+    },
+    "aav_medium": {
+      "protein": "AAV",
+      "difficulty": "medium",
+      "sequence_length": 28,
+      "expected_training_size": 2139,
+      "accepted_observed_training_size": 2145,
+      "training_split": "benchmarks/gfp_aav/tasks/AAV/medium/base_seqs.csv",
+      "initial_archive": "benchmarks/gfp_aav/initial_archives/objects/94f03398b8707a73ee82e76c12be915fff21fc47e011657e96c8487d42cf6599.jsonl.gz",
+      "initial_archive_sha256": "94f03398b8707a73ee82e76c12be915fff21fc47e011657e96c8487d42cf6599",
+      "checkpoint": "configs/checkpoints/protein_evodiff_d3pm_38M_uniform_aav28.pt.json",
+      "runtime_config": "configs/sample/protein_evodiff_d3pm_38M_uniform_aav28.json",
+      "trust_region": {
+        "domain": "time",
+        "time_min": 0.0,
+        "time_init": 0.5,
+        "time_max": 0.95,
+        "expand": 1.5,
+        "shrink": 0.75,
+        "success_patience": 1,
+        "failure_patience": 1
+      },
+      "reward": {
+        "name": "gfp_aav_cnn_oracle",
+        "protein": "AAV",
+        "normalize": true,
+        "sequence_length": 28
+      }
+    },
+    "aav_hard": {
+      "protein": "AAV",
+      "difficulty": "hard",
+      "sequence_length": 28,
+      "expected_training_size": 3448,
+      "accepted_observed_training_size": 3453,
+      "training_split": "benchmarks/gfp_aav/tasks/AAV/hard/base_seqs.csv",
+      "initial_archive": "benchmarks/gfp_aav/initial_archives/objects/9d84562d9a85b52275380b02f2400be6bce318c9e3df11d9a887ec74e3a5b13b.jsonl.gz",
+      "initial_archive_sha256": "9d84562d9a85b52275380b02f2400be6bce318c9e3df11d9a887ec74e3a5b13b",
+      "checkpoint": "configs/checkpoints/protein_evodiff_d3pm_38M_uniform_aav28.pt.json",
+      "runtime_config": "configs/sample/protein_evodiff_d3pm_38M_uniform_aav28.json",
+      "trust_region": {
+        "domain": "time",
+        "time_min": 0.0,
+        "time_init": 0.5,
+        "time_max": 0.95,
+        "expand": 1.5,
+        "shrink": 0.75,
+        "success_patience": 1,
+        "failure_patience": 1
+      },
+      "reward": {
+        "name": "gfp_aav_cnn_oracle",
+        "protein": "AAV",
+        "normalize": true,
+        "sequence_length": 28
+      }
+    }
+  },
+  "methods": [
+    {
+      "name": "unconditional",
+      "cohort": "primary",
+      "runner": "interpolant",
+      "runtime_class": "evodiff",
+      "proposal_mode": "unconditional",
+      "proposal_pool_size": 2000,
+      "selection": "score_all"
+    },
+    {
+      "name": "rt_random",
+      "cohort": "primary",
+      "runner": "interpolant",
+      "runtime_class": "evodiff",
+      "proposal_mode": "random_time",
+      "proposal_pool_size": 24,
+      "selection": "random"
+    },
+    {
+      "name": "rt_gp",
+      "cohort": "primary",
+      "runner": "interpolant",
+      "runtime_class": "evodiff",
+      "proposal_mode": "random_time",
+      "proposal_pool_size": 256,
+      "selection": "greedy_batched_ei"
+    },
+    {
+      "name": "tr_random",
+      "cohort": "primary",
+      "runner": "interpolant",
+      "runtime_class": "evodiff",
+      "proposal_mode": "task_time_trust_region",
+      "proposal_pool_size": 24,
+      "selection": "random"
+    },
+    {
+      "name": "tr_gp",
+      "cohort": "primary",
+      "runner": "interpolant",
+      "runtime_class": "evodiff",
+      "proposal_mode": "task_time_trust_region",
+      "proposal_pool_size": 256,
+      "selection": "greedy_batched_ei"
+    },
+    {
+      "name": "holo_ga",
+      "cohort": "primary",
+      "runner": "holo_ga",
+      "runtime_class": "holo",
+      "generations": 4,
+      "generation_size": 468,
+      "mutation_probability": "inverse_sequence_length",
+      "recombination_probability": "inverse_sequence_length",
+      "survival_quantile": 0.01,
+      "prepaid_initial_archive": true,
+      "upstream": {
+        "repository": "https://github.com/prescient-design/holo-bench",
+        "commit": "4d94731017e63a73008c94a99a1bee87585bf9b0",
+        "source_url": "https://github.com/prescient-design/holo-bench/blob/4d94731017e63a73008c94a99a1bee87585bf9b0/holo/optim/_discrete_evolution.py"
+      }
+    },
+    {
+      "name": "adalead",
+      "cohort": "primary",
+      "runner": "interpolant",
+      "runtime_class": "gp_evolution",
+      "proposal_operator": "adalead_official",
+      "surrogate_queries_per_batch": 128,
+      "paid_batch_size": 8,
+      "sequences_batch_size": 8,
+      "eval_batch_size": 20,
+      "mu": 1,
+      "threshold": 0.05,
+      "rho": 0,
+      "alphabet": "ACDEFGHIKLMNPQRSTVWY",
+      "rng_backend": "torch_global_seeded",
+      "recombination_rate": 0.0,
+      "crossover_rate": 0.0,
+      "selection": "top_surrogate_mean",
+      "upstream": {
+        "repository": "https://github.com/samsinai/FLEXS",
+        "commit": "dd409167b5575b51967d325b4e48aef3577a505f",
+        "adalead_sha256": "d34958ae2035c2346c0bce769f2d0d89c63a62820003a5672d5295d85ac799b5",
+        "sequence_utils_sha256": "f2cb4829531dbae974788d4aa0a96cdd9a2873470a214e20d344d94c1a82e8c4"
+      }
+    },
+    {
+      "name": "bo_evo",
+      "cohort": "primary",
+      "runner": "interpolant",
+      "runtime_class": "gp_evolution",
+      "proposal_operator": "bo_evo",
+      "children_per_selection": 8,
+      "proposal_pool_size": 64,
+      "ucb_coefficient": 0.2,
+      "parent_temperature": 10.0,
+      "crossover_rate": 0.0,
+      "selection": "direct_ucb_screening"
+    },
+    {
+      "name": "lambo2",
+      "cohort": "primary",
+      "runner": "lambo2",
+      "runtime_class": "lambo2",
+      "direct_designs_per_batch": 8,
+      "objective_refit_epochs_per_round": 1,
+      "pretraining_scores": "forbidden"
+    },
+    {
+      "name": "myopic_oracle",
+      "cohort": "diagnostic",
+      "runner": "interpolant",
+      "runtime_class": "evodiff",
+      "seed_count": 10,
+      "proposal_mode": "task_time_trust_region",
+      "proposal_pool_size": 256,
+      "selection": "oracle_best",
+      "privileged": true
+    }
+  ],
+  "lambo2": {
+    "description": "label-free pretraining on the predeclared task training split",
+    "alphabet": "ACDEFGHIKLMNPQRSTVWY",
+    "partition": {
+      "algorithm": "sha256_sequence_modulo",
+      "validation_modulus": 10,
+      "validation_residue": 0,
+      "seed": 0
+    },
+    "generative_training_epochs": 1,
+    "batch_size": 128,
+    "pretraining_accelerator": "gpu",
+    "pretraining_device": "cuda",
+    "requirements": "environments/lambo2/uv.lock",
+    "checkpoint_validation": {
+      "sample_count_per_seed": 64,
+      "seeds": [
+        0,
+        1
+      ],
+      "determinism_repeats": 2,
+      "minimum_unique_fraction": 0.5
+    },
+    "online": {
+      "training_batch_size": 128,
+      "initial_training_epochs": 1,
+      "retraining_epochs": 1,
+      "num_steps": 1,
+      "mutations_per_step": 2,
+      "max_guidance_updates": 8,
+      "expected_transferred_tensors": 17
+    },
+    "tasks": {
+      "gfp_medium": {
+        "corpus_dir": "runs/protein_design_v1/pretraining/gfp_medium/corpus",
+        "checkpoint": "runs/protein_design_v1/pretraining/gfp_medium/generator.ckpt",
+        "manifest": "runs/protein_design_v1/pretraining/gfp_medium/pretraining_manifest.json",
+        "validation_samples": "runs/protein_design_v1/pretraining/gfp_medium/checkpoint_samples.jsonl",
+        "validation_manifest": "runs/protein_design_v1/pretraining/gfp_medium/checkpoint_validation.json"
+      },
+      "gfp_hard": {
+        "corpus_dir": "runs/protein_design_v1/pretraining/gfp_hard/corpus",
+        "checkpoint": "runs/protein_design_v1/pretraining/gfp_hard/generator.ckpt",
+        "manifest": "runs/protein_design_v1/pretraining/gfp_hard/pretraining_manifest.json",
+        "validation_samples": "runs/protein_design_v1/pretraining/gfp_hard/checkpoint_samples.jsonl",
+        "validation_manifest": "runs/protein_design_v1/pretraining/gfp_hard/checkpoint_validation.json"
+      },
+      "aav_medium": {
+        "corpus_dir": "runs/protein_design_v1/pretraining/aav_medium/corpus",
+        "checkpoint": "runs/protein_design_v1/pretraining/aav_medium/generator.ckpt",
+        "manifest": "runs/protein_design_v1/pretraining/aav_medium/pretraining_manifest.json",
+        "validation_samples": "runs/protein_design_v1/pretraining/aav_medium/checkpoint_samples.jsonl",
+        "validation_manifest": "runs/protein_design_v1/pretraining/aav_medium/checkpoint_validation.json"
+      },
+      "aav_hard": {
+        "corpus_dir": "runs/protein_design_v1/pretraining/aav_hard/corpus",
+        "checkpoint": "runs/protein_design_v1/pretraining/aav_hard/generator.ckpt",
+        "manifest": "runs/protein_design_v1/pretraining/aav_hard/pretraining_manifest.json",
+        "validation_samples": "runs/protein_design_v1/pretraining/aav_hard/checkpoint_samples.jsonl",
+        "validation_manifest": "runs/protein_design_v1/pretraining/aav_hard/checkpoint_validation.json"
+      }
+    }
+  },
+  "legacy": {
+    "compatibility_commit": "24aca235",
+    "compatibility_mode": "protein_gfp_aav_24aca235",
+    "artifact_inventory": ".genturbo/artifacts/runs-inventory.json",
+    "source_manifest": "configs/search/protein/gfp_aav_baselines_2000/manifest.csv",
+    "source_run_dir": "runs/search/protein/gfp_aav_baselines_2000",
+    "import_manifest": "runs/protein_design_v1/online/legacy_import_manifest.json",
+    "expected_primary_cells": 196,
+    "expected_diagnostic_cells": 40,
+    "known_missing_primary_cells": [
+      "aav_medium:rt_gp:seed2",
+      "gfp_hard:rt_gp:seed0",
+      "gfp_hard:rt_gp:seed3",
+      "gfp_hard:tr_gp:seed4"
+    ],
+    "condition_map": {
+      "gfp_hard": {
+        "unconditional": "search_003",
+        "rt_random": "search_000",
+        "rt_gp": "search_001",
+        "tr_random": "search_002",
+        "tr_gp": "search_022",
+        "myopic_oracle": "search_004"
+      },
+      "aav_hard": {
+        "unconditional": "search_008",
+        "rt_random": "search_005",
+        "rt_gp": "search_006",
+        "tr_random": "search_007",
+        "tr_gp": "search_023",
+        "myopic_oracle": "search_009"
+      },
+      "gfp_medium": {
+        "unconditional": "search_014",
+        "rt_random": "search_010",
+        "rt_gp": "search_011",
+        "tr_random": "search_012",
+        "tr_gp": "search_013",
+        "myopic_oracle": "search_015"
+      },
+      "aav_medium": {
+        "unconditional": "search_020",
+        "rt_random": "search_016",
+        "rt_gp": "search_017",
+        "tr_random": "search_018",
+        "tr_gp": "search_019",
+        "myopic_oracle": "search_021"
+      }
+    }
+  },
+  "launch_tranches": [
+    {
+      "tranche": 1,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "methods": [
+        "holo_ga",
+        "adalead",
+        "bo_evo",
+        "lambo2"
+      ],
+      "include_known_missing_legacy_cells": true,
+      "expected_cells": 84
+    },
+    {
+      "tranche": 2,
+      "seeds": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "methods": [
+        "holo_ga",
+        "adalead",
+        "bo_evo",
+        "lambo2"
+      ],
+      "include_known_missing_legacy_cells": false,
+      "expected_cells": 80
+    },
+    {
+      "tranche": 3,
+      "seeds": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "methods": [
+        "unconditional",
+        "rt_random",
+        "rt_gp",
+        "tr_random",
+        "tr_gp",
+        "holo_ga",
+        "adalead",
+        "bo_evo",
+        "lambo2"
+      ],
+      "include_known_missing_legacy_cells": false,
+      "expected_cells": 180
+    },
+    {
+      "tranche": 4,
+      "seeds": [
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "methods": [
+        "unconditional",
+        "rt_random",
+        "rt_gp",
+        "tr_random",
+        "tr_gp",
+        "holo_ga",
+        "adalead",
+        "bo_evo",
+        "lambo2"
+      ],
+      "include_known_missing_legacy_cells": false,
+      "expected_cells": 180
+    }
+  ],
+  "execution": {
+    "backend": "local",
+    "gpu_runtime_classes": [
+      "evodiff",
+      "lambo2"
+    ],
+    "cpu_runtime_classes": [
+      "gp_evolution",
+      "holo"
+    ]
+  },
+  "metrics": {
+    "checkpoints": [
+      128,
+      250,
+      500,
+      1000,
+      2000
+    ],
+    "carry_incumbent_forward": true,
+    "summary": [
+      "final_best",
+      "improvement_over_initial",
+      "normalized_post_initial_auc",
+      "running_top10_mean",
+      "runtime_seconds",
+      "validity",
+      "uniqueness",
+      "diversity"
+    ],
+    "paired_reference": "tr_gp",
+    "bootstrap_confidence_level": 0.95,
+    "bootstrap_resamples": 10000,
+    "bootstrap_rng_seed": 20260824,
+    "win_tie_loss_tolerance": 1e-12,
+    "checkpoint_boundary_rule": "last_completed_batch_carry_forward"
+  },
+  "reporting": {
+    "canonical_seed_count": 20,
+    "interim_seed_counts": [
+      5,
+      10,
+      15
+    ],
+    "primary_claim": "proxy-oracle optimisation",
+    "comparand_scope": "end-to-end systems",
+    "separate_rows": [
+      "unconditional",
+      "myopic_oracle"
+    ],
+    "incomplete_canonical_forbidden": true
+  },
+  "deferred_revision_items": [
+    "fixed_depth_sensitivity",
+    "locality_calibration",
+    "representation_sensitivity",
+    "proposal_pool_sensitivity"
+  ]
+}

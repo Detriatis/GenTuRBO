@@ -1,0 +1,17 @@
+{
+  "base_config": "retained_unconditional.json",
+  "checkpoint": "configs/checkpoints/protein_evodiff_d3pm_38M_uniform_gfp237.pt",
+  "config": "configs/sample/protein_evodiff_d3pm_38M_uniform_gfp237.json",
+  "protein_min_len": 237,
+  "protein_max_len": 237,
+  "reward": {
+    "name": "gfp_aav_cnn_oracle",
+    "protein": "GFP",
+    "benchmark_root": "benchmarks/gfp_aav",
+    "normalize": true,
+    "min_len": 237,
+    "max_len": 237,
+    "sequence_length": 237,
+    "device": "cuda"
+  }
+}

@@ -1,0 +1,121 @@
+entries:
+  - logical_name: gfp_ground_truth
+    protein: "GFP"
+    upstream_url: "https://raw.githubusercontent.com/kirjner/GGS/033c543c44aa76655e4868bb71e5713c962401ea/data/GFP/ground_truth.csv"
+    local_path: "raw/GFP/ground_truth.csv"
+    expected_format: "csv"
+    artifact_type: "raw"
+    generated_from: null
+    generation: null
+    checksum: "a29bb2ffe16591ff31dcddd4bec03171f0acf42a2b7b5b65b2eae3a1efec162f"
+    required_columns: ["sequence", "score"]
+  - logical_name: aav_ground_truth
+    protein: "AAV"
+    upstream_url: "https://raw.githubusercontent.com/kirjner/GGS/033c543c44aa76655e4868bb71e5713c962401ea/data/AAV/ground_truth.csv"
+    local_path: "raw/AAV/ground_truth.csv"
+    expected_format: "csv"
+    artifact_type: "raw"
+    generated_from: null
+    generation: null
+    checksum: "cca65e1c1c0ed54b66a77a34ce531f9f907341a3596315568aba785e34a8c9ca"
+    required_columns: ["sequence", "score"]
+  - logical_name: gfp_oracle_checkpoint
+    protein: "GFP"
+    upstream_url: "https://raw.githubusercontent.com/kirjner/GGS/033c543c44aa76655e4868bb71e5713c962401ea/ckpt/GFP/mutations_0/percentile_0.0_1.0/cnn_oracle.ckpt"
+    local_path: "oracle/GFP/cnn_oracle.ckpt"
+    expected_format: "pytorch/lightning checkpoint"
+    artifact_type: "oracle"
+    generated_from: null
+    generation: null
+    checksum: "988bd99bcdd8c1ec8bee5174c968dcd5db3adc33ce33a904ed186554cb0d273a"
+    required_columns: []
+  - logical_name: gfp_oracle_config
+    protein: "GFP"
+    upstream_url: "https://raw.githubusercontent.com/kirjner/GGS/033c543c44aa76655e4868bb71e5713c962401ea/ckpt/GFP/mutations_0/percentile_0.0_1.0/config.yaml"
+    local_path: "oracle/GFP/config.yaml"
+    expected_format: "yaml"
+    artifact_type: "oracle"
+    generated_from: null
+    generation: null
+    checksum: "f6c2d6e112c5a5111e7ceeb517aa94d2fcc06dbf3a1001cda48d4829b3dbd63a"
+    required_columns: []
+  - logical_name: aav_oracle_checkpoint
+    protein: "AAV"
+    upstream_url: "https://raw.githubusercontent.com/kirjner/GGS/033c543c44aa76655e4868bb71e5713c962401ea/ckpt/AAV/mutations_0/percentile_0.0_1.0/cnn_oracle.ckpt"
+    local_path: "oracle/AAV/cnn_oracle.ckpt"
+    expected_format: "pytorch/lightning checkpoint"
+    artifact_type: "oracle"
+    generated_from: null
+    generation: null
+    checksum: "5db64072b22c22b24d1b7356faf950e09d28ff66744ec5168715d05143301564"
+    required_columns: []
+  - logical_name: aav_oracle_config
+    protein: "AAV"
+    upstream_url: "https://raw.githubusercontent.com/kirjner/GGS/033c543c44aa76655e4868bb71e5713c962401ea/ckpt/AAV/mutations_0/percentile_0.0_1.0/config.yaml"
+    local_path: "oracle/AAV/config.yaml"
+    expected_format: "yaml"
+    artifact_type: "oracle"
+    generated_from: null
+    generation: null
+    checksum: "ddd45ea9ba7cca90d923cbc657f641d1c3486fb8eda798065776a0f1fba18da6"
+    required_columns: []
+  - logical_name: gfp_medium_base_seqs
+    protein: "GFP"
+    upstream_url: null
+    local_path: "tasks/GFP/medium/base_seqs.csv"
+    expected_format: "csv"
+    artifact_type: "generated"
+    generated_from: "gfp_ground_truth"
+    generation: "prepare_gfp_aav_benchmark:gfp_medium"
+    checksum: "56d918a0d20041a3a94136962c7037161cfbf2e6736b1953392961e51a4b4024"
+    required_columns: ["sequence", "score"]
+  - logical_name: gfp_hard_base_seqs
+    protein: "GFP"
+    upstream_url: null
+    local_path: "tasks/GFP/hard/base_seqs.csv"
+    expected_format: "csv"
+    artifact_type: "generated"
+    generated_from: "gfp_ground_truth"
+    generation: "prepare_gfp_aav_benchmark:gfp_hard"
+    checksum: "cd8fa56160778a5d01203ed008258afd29aa53693a4a40ac83fd4ccabb5a4561"
+    required_columns: ["sequence", "score"]
+  - logical_name: aav_medium_base_seqs
+    protein: "AAV"
+    upstream_url: null
+    local_path: "tasks/AAV/medium/base_seqs.csv"
+    expected_format: "csv"
+    artifact_type: "generated"
+    generated_from: "aav_ground_truth"
+    generation: "prepare_gfp_aav_benchmark:aav_medium"
+    checksum: "0aa32f3f9bb14632f27a8791a791c174d3b83038b59e647a940f61aa49a5792c"
+    required_columns: ["sequence", "score"]
+  - logical_name: aav_hard_base_seqs
+    protein: "AAV"
+    upstream_url: null
+    local_path: "tasks/AAV/hard/base_seqs.csv"
+    expected_format: "csv"
+    artifact_type: "generated"
+    generated_from: "aav_ground_truth"
+    generation: "prepare_gfp_aav_benchmark:aav_hard"
+    checksum: "6441661a7325d5ececefcdf6cbcb8b0463f46819625e300d19f6de22b614aee2"
+    required_columns: ["sequence", "score"]
+  - logical_name: gfp_fitness_stats
+    protein: "GFP"
+    upstream_url: null
+    local_path: "stats/GFP/fitness_stats.json"
+    expected_format: "json"
+    artifact_type: "derived"
+    generated_from: "gfp_ground_truth"
+    generation: "prepare_gfp_aav_benchmark:fitness_stats"
+    checksum: "02dfcd2c71fb5a2becb8169e7e83b1754787081260d89c7ef7fa6309a927e8a0"
+    required_columns: []
+  - logical_name: aav_fitness_stats
+    protein: "AAV"
+    upstream_url: null
+    local_path: "stats/AAV/fitness_stats.json"
+    expected_format: "json"
+    artifact_type: "derived"
+    generated_from: "aav_ground_truth"
+    generation: "prepare_gfp_aav_benchmark:fitness_stats"
+    checksum: "b35598fac899231e6e2d19c27c26cace12256b39dc4dee1c3ac3acc3f06dab77"
+    required_columns: []

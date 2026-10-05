@@ -1,0 +1,86 @@
+{
+  "aav_hard": {
+    "difficulty": "hard",
+    "expected_median_normalized_fitness": 0.27,
+    "expected_train_fitness_range": [
+      0.0,
+      0.33
+    ],
+    "expected_train_size": 3448,
+    "filter_percentile": [
+      0.0,
+      0.3
+    ],
+    "metadata_file": "tasks/AAV/hard/metadata.json",
+    "min_mutant_dist": 7,
+    "output_file": "tasks/AAV/hard/base_seqs.csv",
+    "protein": "AAV",
+    "raw_dataset": "aav_ground_truth",
+    "seq_len": 28,
+    "task_name": "aav_hard",
+    "top_quantile": 0.99
+  },
+  "aav_medium": {
+    "difficulty": "medium",
+    "expected_median_normalized_fitness": 0.32,
+    "expected_train_fitness_range": [
+      0.29,
+      0.38
+    ],
+    "expected_train_size": 2139,
+    "filter_percentile": [
+      0.2,
+      0.4
+    ],
+    "metadata_file": "tasks/AAV/medium/metadata.json",
+    "min_mutant_dist": 6,
+    "output_file": "tasks/AAV/medium/base_seqs.csv",
+    "protein": "AAV",
+    "raw_dataset": "aav_ground_truth",
+    "seq_len": 28,
+    "task_name": "aav_medium",
+    "top_quantile": 0.99
+  },
+  "gfp_hard": {
+    "difficulty": "hard",
+    "expected_median_normalized_fitness": 0.01,
+    "expected_train_fitness_range": [
+      0.0,
+      0.1
+    ],
+    "expected_train_size": 2426,
+    "filter_percentile": [
+      0.0,
+      0.3
+    ],
+    "metadata_file": "tasks/GFP/hard/metadata.json",
+    "min_mutant_dist": 7,
+    "output_file": "tasks/GFP/hard/base_seqs.csv",
+    "protein": "GFP",
+    "raw_dataset": "gfp_ground_truth",
+    "seq_len": 237,
+    "task_name": "gfp_hard",
+    "top_quantile": 0.99
+  },
+  "gfp_medium": {
+    "difficulty": "medium",
+    "expected_median_normalized_fitness": 0.09,
+    "expected_train_fitness_range": [
+      0.01,
+      0.62
+    ],
+    "expected_train_size": 2828,
+    "filter_percentile": [
+      0.2,
+      0.4
+    ],
+    "metadata_file": "tasks/GFP/medium/metadata.json",
+    "min_mutant_dist": 6,
+    "output_file": "tasks/GFP/medium/base_seqs.csv",
+    "protein": "GFP",
+    "raw_dataset": "gfp_ground_truth",
+    "seq_len": 237,
+    "task_name": "gfp_medium",
+    "top_quantile": 0.99
+  }
+}

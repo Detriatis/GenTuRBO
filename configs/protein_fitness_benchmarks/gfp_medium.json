@@ -1,0 +1,32 @@
+{
+  "name": "gfp_medium",
+  "benchmark": "arxiv_2501_19200_limited_data_protein_fitness",
+  "protein": "GFP",
+  "training_subset": {
+    "size": 2828,
+    "normalized_fitness_median": 0.09,
+    "normalized_fitness_range": [0.01, 0.62],
+    "definition": "Sequences from the 20-40th percentile fitness range of the full DMS dataset, with at least 6 mutations required to reach any sequence in the 99th fitness percentile.",
+    "fitness_percentile_range": [20, 40],
+    "min_mutations_to_99th_percentile": 6,
+    "training_only": true
+  },
+  "full_dms": {
+    "size": 56086,
+    "labels_for_training": false,
+    "y_min": null,
+    "y_max": null
+  },
+  "oracle": {
+    "name": "kirjner_2023_1d_cnn",
+    "evaluation_only": true,
+    "model_path": null,
+    "input_encoding": "one_hot",
+    "trained_on_full_dms_size": 56086
+  },
+  "metrics": [
+    "median_normalized_fitness",
+    "diversity",
+    "novelty"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "base_config": "aav_hard.json",
+  "benchmark_task": "aav_medium",
+  "protein_objective": "aav_medium",
+  "initial_batch_path": "benchmarks/gfp_aav/initial_archives/objects/94f03398b8707a73ee82e76c12be915fff21fc47e011657e96c8487d42cf6599.jsonl.gz"
+}

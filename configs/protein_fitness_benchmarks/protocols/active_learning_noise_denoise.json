@@ -1,0 +1,20 @@
+{
+  "name": "active_learning_noise_denoise",
+  "optimizer": "current_noise_denoise",
+  "mode": "active_learning_label_budgeted",
+  "oracle_access": false,
+  "n0": 128,
+  "al_oracle_batch_size": 32,
+  "acquisition_batch_size": 32,
+  "active_query_budget": 512,
+  "num_iterations": 1,
+  "num_candidates": 512,
+  "raw_generation_budget": 512,
+  "top_k_final_candidates": 128,
+  "batch_size": 128,
+  "num_starting_sequences": 1,
+  "starting_sequence_strategy": "best_training_sequence",
+  "ranking": "training_time_surrogate",
+  "acquisition_label_source": "simulated_oracle",
+  "final_evaluation": "held_out_kirjner_2023_1d_cnn"
+}

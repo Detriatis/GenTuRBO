@@ -1,0 +1,11 @@
+{
+  "suite": "sokoban",
+  "objective": "best_exact_box_switches",
+  "recipes": {
+    "generator": "generator.json",
+    "genturbo": "genturbo.json",
+    "adalead_official": "adalead_official.json",
+    "grid_ga": "grid_ga.json",
+    "hamming": "hamming.json"
+  }
+}

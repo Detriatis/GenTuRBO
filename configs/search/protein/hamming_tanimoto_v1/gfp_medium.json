@@ -1,0 +1,8 @@
+{
+  "base_config": "gfp_hard.json",
+  "benchmark_task": "gfp_medium",
+  "protein_objective": "gfp_medium",
+  "al_gp_noise_variance": 0.001,
+  "al_gp_fit_mean_and_noise_only": false,
+  "initial_batch_path": "benchmarks/gfp_aav/initial_archives/objects/deccef8745dd17aa1b0148664d7c12c06f6d6d133469df4a06e2e861db1458c5.jsonl.gz"
+}

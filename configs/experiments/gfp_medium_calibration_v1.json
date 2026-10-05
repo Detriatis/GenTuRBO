@@ -1,0 +1,21 @@
+{
+  "base_search_config": "configs/search/protein/tanimoto_matched_v1/gfp_medium.json",
+  "learned_history_root": "results/protein_kernel20/raw/tanimoto/gfp_medium/tr_gp",
+  "fixed_history_root": "results/protein_gfp_medium_calibration_v1/input/fixed_noise",
+  "seeds": [0, 1, 2, 3, 4],
+  "probe_seed": 22092026,
+  "parents": 8,
+  "distances": [1, 2, 4, 8, 16],
+  "draws_per_parent_distance_split": 32,
+  "generator_acquired_per_split": 768,
+  "snapshot_batches": [0, 7, 8, 15, 16],
+  "refit_interval": 8,
+  "variants": {
+    "learned_unit": {"noise_variance": null, "outputscale": 1.0, "learn_outputscale": false, "fit_mean_and_noise_only": true},
+    "learned_scale": {"noise_variance": null, "outputscale": 1.0, "learn_outputscale": true, "fit_mean_and_noise_only": false},
+    "fixed_0.0001": {"noise_variance": 0.0001, "outputscale": 1.0, "learn_outputscale": false, "fit_mean_and_noise_only": false},
+    "fixed_0.001": {"noise_variance": 0.001, "outputscale": 1.0, "learn_outputscale": false, "fit_mean_and_noise_only": false},
+    "fixed_0.01": {"noise_variance": 0.01, "outputscale": 1.0, "learn_outputscale": false, "fit_mean_and_noise_only": false}
+  },
+  "selection": "Lowest mean validation observation NLL on uniform mutants, with latent calibration, RMSE and EI ranking reviewed before freezing. Previously acquired generator sequences are secondary and selection-biased. Test metrics are computed only for the frozen choice and original baseline."
+}

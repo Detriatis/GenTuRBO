@@ -1,0 +1,16 @@
+{
+  "base_config": "base.json",
+  "output": "runs/sokoban/hamming",
+  "methods": [
+    "hamming_gp_ei"
+  ],
+  "oracle_batch": 8,
+  "archive_parents": 1,
+  "success_tolerance": 1,
+  "failure_tolerance": 1,
+  "gp_buffer": 2000,
+  "gp_refit_interval": 8,
+  "parent_policy": "best",
+  "local_penalization": false,
+  "region_shrink_scalar": 0.75
+}

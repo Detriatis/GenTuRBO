@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "study": "ehrlich_kernel_v1",
+  "workflow": "timing",
+  "static_config": "configs/experiments/ehrlich_kernel_v1/static.json",
+  "run_dir": "runs/ehrlich_kernel_v1/timing",
+  "results_dir": "results/ehrlich_kernel_v1/timing",
+  "conditions": [
+    "l128_q4_k4",
+    "l256_q4_k8"
+  ],
+  "heldout_seed": 0,
+  "fit_repeats": 1,
+  "inference_repeats": 3,
+  "device": "cpu",
+  "dtype": "double",
+  "garbage_collection": "outside_measurement",
+  "metrics": [
+    "fit_seconds",
+    "inference_seconds"
+  ]
+}

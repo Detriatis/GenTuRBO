@@ -1,0 +1,6 @@
+{
+  "base_config": "../bases/medium_random_gfp.json",
+  "candidate_strategy": "random",
+  "plot_label": "GFP Medium RT + Random",
+  "samples_out": "runs/protein_design_v1/medium_random_v1/cells/gfp_medium/rt_random/seed0/samples.jsonl.gz"
+}

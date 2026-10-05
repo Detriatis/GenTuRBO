@@ -1,0 +1,21 @@
+{
+  "base_config": "medium_random.json",
+  "checkpoint": "configs/checkpoints/protein_evodiff_d3pm_38M_uniform_gfp237.pt",
+  "config": "configs/sample/protein_evodiff_d3pm_38M_uniform_gfp237.json",
+  "benchmark_task": "gfp_medium",
+  "protein_objective": "gfp_medium",
+  "protein_min_len": 237,
+  "protein_max_len": 237,
+  "reward": {
+    "name": "gfp_aav_cnn_oracle",
+    "protein": "GFP",
+    "benchmark_root": "benchmarks/gfp_aav",
+    "normalize": true,
+    "min_len": 237,
+    "max_len": 237,
+    "sequence_length": 237,
+    "device": "cuda"
+  },
+  "initial_batch_path": "benchmarks/gfp_aav/initial_archives/objects/deccef8745dd17aa1b0148664d7c12c06f6d6d133469df4a06e2e861db1458c5.jsonl.gz",
+  "al_onehot_max_len": 237
+}

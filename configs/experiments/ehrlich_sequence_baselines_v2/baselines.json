@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "protocol_version": 6,
+  "study": "ehrlich_sequence_baselines_v2",
+  "workflow": "online",
+  "base_datasets_config": "configs/experiments/ehrlich_kernel_v1/datasets.json",
+  "condition": "l256_q4_k8",
+  "run_dir": "runs/ehrlich_sequence_baselines_v2/online",
+  "results_dir": "results/ehrlich_sequence_baselines_v2/online",
+  "seed_batches": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    [
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    [
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  ],
+  "generation": {
+    "device": "mps",
+    "initial_oracle_evaluations": 64,
+    "max_selected_archive_evaluations": 2000,
+    "iteration_cap": 242,
+    "expected_full_batches": 242,
+    "proposal_batch_size": 128,
+    "acquisition_batch_size": 8,
+    "unconditional_chunk_size": 128,
+    "flow_steps": 20,
+    "candidate_source": "best",
+    "random_time": {
+      "num_times": 1,
+      "mixes_per_time": 128,
+      "shared_within_proposal_pool": true
+    },
+    "trust_region": {
+      "type": "ScalarTrustRegion",
+      "domain": "absolute_edits",
+      "sampling": "fixed_budget",
+      "edits_min": 2,
+      "edits_init": 64,
+      "edits_max": 128,
+      "expand": 1.5,
+      "shrink": 0.75,
+      "success_patience": 1,
+      "failure_patience": 1
+    },
+    "validity_policy": "black_box_paid_oracle",
+    "invalid_gp_target": 0.0,
+    "duplicate_policy": "exclude_archive_and_batch_duplicates",
+    "cache_policy": "reuse_scored_sequences"
+  },
+  "gp": {
+    "kernel": "spaced_pair_w32",
+    "device": "cpu",
+    "dtype": "double",
+    "jitter": 0.0001,
+    "noise_mode": "fitted",
+    "outputscale": 1.0,
+    "learn_outputscale": false,
+    "trainable_parameters": [
+      "constant_mean",
+      "likelihood_noise"
+    ],
+    "hyperparameter_refit_interval": 8,
+    "buffer_size": 2000,
+    "buffer_mode": "recent"
+  },
+  "shared_initial_archive": {
+    "enabled": true,
+    "byte_identical_across_iterative_arms": true,
+    "excludes_arms": [
+      "unconditional"
+    ]
+  },
+  "lambo2": {
+    "adapter_commit": "6b8930f22a51c0672d4e26afa68c2be6f9aa17c7",
+    "poli_commit": "bc38921a51cbb28b835e34a785e830f3ef3b9eb7",
+    "cortex_version": "0.0.4",
+    "requirements": "environments/lambo2/uv.lock",
+    "pretraining": {
+      "markov_training_config": "configs/train/ctmc_trainer_conv512.json",
+      "reference_checkpoint": "runs/train/trained_ctmc512/checkpoints/model_step18000.pt",
+      "reference_updates": 18000,
+      "reference_batch_size": 128,
+      "reference_sequence_length": 128,
+      "checkpoint": "runs/ehrlich_sequence_baselines_v2/pretraining/lambo2_ehrlich_l256/generator.ckpt",
+      "manifest": "runs/ehrlich_sequence_baselines_v2/pretraining/lambo2_ehrlich_l256/pretraining_manifest.json",
+      "sequence_length": 256,
+      "sampled_corpus_size": 160000,
+      "adapter_train_fraction": 0.8,
+      "training_corpus_size": 128000,
+      "batch_size": 128,
+      "epochs": 9,
+      "matched_token_exposures": 294912000,
+      "seed": 0,
+      "device": "mps",
+      "estimated_hours": [
+        1,
+        3
+      ],
+      "oracle_labels_seen": 0,
+      "task_motifs_seen": false
+    },
+    "online": {
+      "device": "mps",
+      "training_batch_size": 128,
+      "initial_training_epochs": 1,
+      "retraining_epochs": 1,
+      "num_steps": 1,
+      "mutations_per_step": 2,
+      "max_guidance_updates": 8,
+      "expected_transferred_tensors": 17
+    }
+  },
+  "execution": {
+    "legacy_completed_seed_max": 9,
+    "legacy_completed_device": "mps",
+    "new_generator_device": "cuda",
+    "new_cpu_device": "cpu",
+    "cpu_generator_seeds": {
+      "tr_gp": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unconditional_gp": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "no_tr_no_gp": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "tr_no_gp": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "oracle_upper_bound": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unconditional": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    "generator_gpu_arms": [
+      "unconditional",
+      "no_tr_no_gp",
+      "tr_no_gp",
+      "no_tr_gp",
+      "tr_gp",
+      "oracle_upper_bound",
+      "unconditional_gp"
+    ],
+    "cpu_arms": [
+      "hamming_random",
+      "hamming_gp",
+      "adalead_gp_ei",
+      "bo_evo",
+      "holo_ga"
+    ],
+    "lambo2_arms": [
+      "lambo2"
+    ],
+    "backend": "local"
+  },
+  "holo": {
+    "released_commit": "4d94731017e63a73008c94a99a1bee87585bf9b0",
+    "source_url": "https://github.com/prescient-design/holo-bench/blob/4d94731017e63a73008c94a99a1bee87585bf9b0/holo/optim/_discrete_evolution.py",
+    "initialization": "tile_prepaid_archive_then_released_survive_recombine_mutate",
+    "initial_archive_size": 64,
+    "population_size": 484,
+    "generation_count": 4,
+    "mutation_prob": 0.00390625,
+    "recombine_prob": 0.00390625,
+    "survival_quantile": 0.01,
+    "vocab_size": 20,
+    "alphabet": "ACDEFGHIKLMNPQRSTVWY",
+    "device": "cpu",
+    "duplicate_policy": "score_all_like_released_holo",
+    "feasibility_policy": "black_box_score_all"
+  },
+  "arms": [
+    {
+      "name": "unconditional",
+      "proposal_mode": "unconditional",
+      "trust_region": false,
+      "surrogate": null,
+      "acquisition": "none",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "no_tr_no_gp",
+      "proposal_mode": "conditional",
+      "trust_region": false,
+      "surrogate": null,
+      "acquisition": "random",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "tr_no_gp",
+      "proposal_mode": "conditional",
+      "trust_region": true,
+      "surrogate": null,
+      "acquisition": "random",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "no_tr_gp",
+      "proposal_mode": "conditional",
+      "trust_region": false,
+      "surrogate": "spaced_pair_w32",
+      "acquisition": "marginal_expected_improvement",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "tr_gp",
+      "proposal_mode": "conditional",
+      "trust_region": true,
+      "surrogate": "spaced_pair_w32",
+      "acquisition": "marginal_expected_improvement",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "oracle_upper_bound",
+      "proposal_mode": "conditional",
+      "trust_region": true,
+      "surrogate": null,
+      "acquisition": "oracle_best",
+      "oracle_budget_mode": "selected_archive"
+    },
+    {
+      "name": "unconditional_gp",
+      "proposal_operator": "generator",
+      "fixed_time": 0.0,
+      "trust_region": false,
+      "surrogate": "spaced_pair_w32",
+      "acquisition": "marginal_expected_improvement",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "hamming_random",
+      "proposal_operator": "hamming",
+      "trust_region": true,
+      "surrogate": null,
+      "acquisition": "random",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "hamming_gp",
+      "proposal_operator": "hamming",
+      "trust_region": true,
+      "surrogate": "spaced_pair_w32",
+      "acquisition": "marginal_expected_improvement",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "adalead_gp_ei",
+      "proposal_operator": "adalead",
+      "baseline_population_size": 32,
+      "baseline_generations": 4,
+      "baseline_fitness_threshold": 0.05,
+      "baseline_mutation_edits": 1,
+      "trust_region": false,
+      "surrogate": "spaced_pair_w32",
+      "acquisition": "marginal_expected_improvement",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "bo_evo",
+      "proposal_operator": "bo_evo",
+      "baseline_parent_temperature": 10.0,
+      "baseline_ucb_beta": 0.2,
+      "baseline_children_per_selection": 8,
+      "trust_region": false,
+      "surrogate": "spaced_pair_w32",
+      "acquisition": "random",
+      "oracle_budget_mode": "physical"
+    },
+    {
+      "name": "lambo2",
+      "runner": "lambo2",
+      "proposal_operator": "guided_discrete_diffusion",
+      "trust_region": false,
+      "surrogate": "partial_deep_ensemble",
+      "acquisition": "graph_nei",
+      "oracle_budget_mode": "physical",
+      "pretraining_scores": "forbidden",
+      "online_initial_archive": 64
+    },
+    {
+      "name": "holo_ga",
+      "runner": "holo_ga",
+      "proposal_operator": "holo_discrete_evolution",
+      "trust_region": false,
+      "surrogate": null,
+      "acquisition": "none",
+      "oracle_budget_mode": "physical",
+      "online_initial_archive": 64
+    }
+  ],
+  "metrics": [
+    "best_so_far",
+    "full_budget_auc",
+    "final_best",
+    "improvement_over_initial",
+    "paired_seed_difference",
+    "batch_diversity_hamming",
+    "runtime_seconds",
+    "validity_rate",
+    "uniqueness_rate",
+    "selected_archive_oracle_evaluations",
+    "physical_oracle_scores",
+    "privileged_oracle_scores",
+    "failure_count"
+  ]
+}

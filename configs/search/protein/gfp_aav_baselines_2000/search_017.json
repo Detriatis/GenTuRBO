@@ -1,0 +1,12 @@
+{
+  "base_config": "../bases/retained_active_aav.json",
+  "mixes_per_time": 256,
+  "candidate_strategy": "random",
+  "benchmark_task": "aav_medium",
+  "protein_objective": "aav_medium",
+  "initial_batch_path": "benchmarks/gfp_aav/initial_archives/objects/94f03398b8707a73ee82e76c12be915fff21fc47e011657e96c8487d42cf6599.jsonl.gz",
+  "al_acquisition": "batched_expected_improvement",
+  "plot_label": "AAV Medium RT + GP",
+  "samples_out": "runs/search/protein/gfp_aav_baselines_2000/search_017/samples.jsonl",
+  "sample_only": false
+}

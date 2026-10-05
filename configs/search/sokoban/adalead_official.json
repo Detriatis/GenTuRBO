@@ -1,0 +1,15 @@
+{
+  "base_config": "base.json",
+  "output": "runs/sokoban/adalead_official",
+  "methods": [
+    "adalead_official"
+  ],
+  "oracle_batch": 8,
+  "gp_buffer": 2000,
+  "gp_refit_interval": 8,
+  "local_penalization": false,
+  "adalead_fitness_threshold": 0.05,
+  "adalead_surrogate_queries": 128,
+  "adalead_eval_batch_size": 20,
+  "adalead_mu": 1.0
+}

@@ -1,0 +1,20 @@
+{
+  "study": "ehrlich_adalead_official_v1",
+  "base_study": "configs/experiments/ehrlich_sequence_baselines_v2/baselines.json",
+  "base_arm": "tr_gp",
+  "run_dir": "runs/ehrlich_adalead_official_v1/online",
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "overrides": {
+    "device": "cpu",
+    "proposal_operator": "adalead_official",
+    "candidate_strategy": "random",
+    "mixes_per_time": 8,
+    "al_acquisition": "random",
+    "initial_batch_advance_rng": false,
+    "baseline_adalead_surrogate_queries": 128,
+    "baseline_adalead_eval_batch_size": 20,
+    "baseline_adalead_mu": 1.0,
+    "baseline_fitness_threshold": 0.05,
+    "baseline_crossover_rate": 0.0
+  }
+}

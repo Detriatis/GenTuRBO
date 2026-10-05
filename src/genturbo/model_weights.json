@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "name": "evodiff",
+      "filename": "d3pm-uniform-38M.tar",
+      "url": "https://zenodo.org/records/8045076/files/d3pm-uniform-38M.tar?download=1",
+      "bytes": 454938007,
+      "checksum": {
+        "algorithm": "md5",
+        "value": "c2f1b10f01effe0464c1851904253298"
+      },
+      "checksum_source": "https://zenodo.org/api/records/8045076",
+      "source_revision": "Zenodo record 8045076 version 1",
+      "sha256": "a6369c597793e2bbe2c971a494b458e30ff7d93003868abbf99f33dee08e4869"
+    },
+    {
+      "name": "esm2",
+      "filename": "esm2_t33_650M_UR50D.pt",
+      "url": "https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt",
+      "bytes": 2604537549,
+      "checksum": {
+        "algorithm": "s3-multipart-md5",
+        "value": "12a18098227c0ff911354647d25d494d-311"
+      },
+      "multipart_chunk_bytes": 8388608,
+      "checksum_source": "https://s3.us-west-2.amazonaws.com/dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt?partNumber=1",
+      "source_revision": "S3 object version 2G4typsUSwOKQLH35sqPMJ27ZLX1AEJG",
+      "sha256": "ea9d0522b335a8778dea6535a65301f10208dece28cd5865482b0b1fc446168c"
+    },
+    {
+      "name": "esm2-regression",
+      "filename": "esm2_t33_650M_UR50D-contact-regression.pt",
+      "url": "https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t33_650M_UR50D-contact-regression.pt",
+      "bytes": 3687,
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "8ffe6edbd4173dc8d45c2cd5cb27d43aad77ec26b4c768200c58ae1f96693575"
+      },
+      "checksum_source": "Computed from the official download; also matched provider MD5 743354dd846c9460fd2fe50892033543",
+      "source_revision": "S3 object version cEcpCgy3_xlt3NCWsoXOzeIrh7.EDOBu",
+      "sha256": "8ffe6edbd4173dc8d45c2cd5cb27d43aad77ec26b4c768200c58ae1f96693575"
+    }
+  ]
+}

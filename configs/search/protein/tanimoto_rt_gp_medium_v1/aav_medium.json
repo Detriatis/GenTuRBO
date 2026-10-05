@@ -1,0 +1,7 @@
+{
+  "base_config": "../tanimoto_matched_v1/aav_medium.json",
+  "candidate_strategy": "random",
+  "device": "cpu",
+  "config": "configs/sample/protein_evodiff_d3pm_38M_uniform_aav28_cpu.json",
+  "plot_label": "AAV Medium RT + GP Matched Tanimoto"
+}

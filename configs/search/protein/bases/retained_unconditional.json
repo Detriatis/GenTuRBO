@@ -1,0 +1,22 @@
+{
+  "runner": "interpolant",
+  "protein_mode": true,
+  "flow_steps": 32,
+  "max_time": 1,
+  "device": "cuda",
+  "temperature": 1,
+  "candidate_source": "best",
+  "candidate_k": 1,
+  "num_times": 1,
+  "mixes_per_time": 24,
+  "candidate_strategy": "random",
+  "mixing_mode": "random",
+  "rollout_use_corrupt_mask": false,
+  "write_proposal_diagnostics": true,
+  "batch_size": 32,
+  "num_iterations": 2000,
+  "max_oracle_evaluations": 2000,
+  "active_learning": false,
+  "sample_only": true,
+  "sample_only_count": 2000
+}

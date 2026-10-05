@@ -1,0 +1,7 @@
+{
+  "base_config": "../tanimoto_fixed_noise_v1/gfp_medium.json",
+  "candidate_strategy": "random",
+  "device": "cpu",
+  "config": "configs/sample/protein_evodiff_d3pm_38M_uniform_gfp237_cpu.json",
+  "plot_label": "GFP Medium RT + GP Tanimoto Fixed Noise 0.001"
+}

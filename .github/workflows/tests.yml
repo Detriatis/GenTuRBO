@@ -1,0 +1,14 @@
+name: Release checks
+on: [push, pull_request]
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install locked CPU environment
+        run: python scripts/setup.py --profile cpu --dev
+      - name: Run focused checks
+        run: .venv/bin/python -m pytest
+      - name: Build distribution
+        run: uv build

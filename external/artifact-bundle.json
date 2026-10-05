@@ -1,0 +1,16 @@
+{
+  "bundle": "GenTuRBO-artifacts.tar.gz",
+  "bytes": 303892361,
+  "sha256": "c743bdb6bdfbde202c6104ca640bd35cf91e5c932741fccc9ab82f67ace2f22a",
+  "file_count": 2630,
+  "uncompressed_bytes": 667257573,
+  "groups": {
+    "protein": 29,
+    "reference": 2197,
+    "sokoban": 101,
+    "ehrlich": 303
+  },
+  "landing_page_url": "https://github.com/Detriatis/GenTuRBO/releases/tag/v0.1.0",
+  "download_url": "https://github.com/Detriatis/GenTuRBO/releases/download/v0.1.0/GenTuRBO-artifacts.tar.gz",
+  "checksum_url": "https://github.com/Detriatis/GenTuRBO/releases/download/v0.1.0/GenTuRBO-artifacts.tar.gz.sha256"
+}

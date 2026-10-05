@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "study": "ehrlich_kernel_v1",
+  "workflow": "online",
+  "datasets_config": "configs/experiments/ehrlich_kernel_v1/datasets.json",
+  "static_config": "configs/experiments/ehrlich_kernel_v1/static.json",
+  "run_dir": "runs/ehrlich_kernel_v1/online",
+  "results_dir": "results/ehrlich_kernel_v1/online",
+  "conditions": [
+    "l128_q4_k4",
+    "l256_q4_k8"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "generation": {
+    "device": "mps",
+    "initial_generation": "unconditional",
+    "initial_oracle_evaluations": 64,
+    "conditional_iterations": 56,
+    "proposal_batch_size": 128,
+    "acquisition_batch_size": 8,
+    "max_oracle_evaluations": 512,
+    "flow_steps": 20,
+    "candidate_source": "best",
+    "trust_region": {
+      "type": "ScalarTrustRegion",
+      "domain": "absolute_edits",
+      "sampling": "fixed_budget",
+      "edits_min": 2,
+      "edits_init": 64,
+      "edits_max": 128,
+      "expand": 1.5,
+      "shrink": 0.75,
+      "success_patience": 1,
+      "failure_patience": 1
+    },
+    "validity_policy": "reward_adapter",
+    "duplicate_policy": "exclude_archive_and_batch_duplicates",
+    "cache_policy": "reuse_scored_sequences"
+  },
+  "gp": {
+    "device": "cpu",
+    "dtype": "double",
+    "jitter": 0.0001,
+    "noise_mode": "fitted",
+    "outputscale": 1.0,
+    "learn_outputscale": false,
+    "trainable_parameters": [
+      "constant_mean",
+      "likelihood_noise"
+    ]
+  },
+  "shared_initial_archive": {
+    "enabled": true,
+    "byte_identical_across_arms": true
+  },
+  "arms": [
+    {
+      "name": "onehot_ei",
+      "kernel": "onehot_tanimoto",
+      "acquisition": "marginal_expected_improvement"
+    },
+    {
+      "name": "spaced_pair_w32_ei",
+      "kernel": "spaced_pair_w32",
+      "acquisition": "marginal_expected_improvement"
+    },
+    {
+      "name": "spaced_pair_w48_ei",
+      "kernel": "spaced_pair_w48",
+      "acquisition": "marginal_expected_improvement"
+    },
+    {
+      "name": "random",
+      "kernel": null,
+      "acquisition": "random"
+    }
+  ],
+  "metrics": [
+    "best_so_far",
+    "normalized_post_initial_auc",
+    "final_best",
+    "improvement_over_initial",
+    "paired_seed_difference",
+    "batch_diversity_hamming",
+    "runtime_seconds",
+    "validity_rate",
+    "uniqueness_rate",
+    "failure_count"
+  ]
+}

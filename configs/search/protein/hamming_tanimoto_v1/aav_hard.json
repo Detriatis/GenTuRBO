@@ -1,0 +1,24 @@
+{
+  "base_config": "common.json",
+  "checkpoint": "configs/checkpoints/protein_evodiff_d3pm_38M_uniform_aav28.pt",
+  "config": "configs/sample/protein_evodiff_d3pm_38M_uniform_aav28.json",
+  "benchmark_task": "aav_hard",
+  "protein_objective": "aav_hard",
+  "protein_min_len": 28,
+  "protein_max_len": 28,
+  "tr_edits": 14.0,
+  "edits_init": 14.0,
+  "edits_max": 28,
+  "al_onehot_max_len": 28,
+  "initial_batch_path": "benchmarks/gfp_aav/initial_archives/objects/9d84562d9a85b52275380b02f2400be6bce318c9e3df11d9a887ec74e3a5b13b.jsonl.gz",
+  "reward": {
+    "name": "gfp_aav_cnn_oracle",
+    "protein": "AAV",
+    "benchmark_root": "benchmarks/gfp_aav",
+    "normalize": true,
+    "min_len": 28,
+    "max_len": 28,
+    "sequence_length": 28,
+    "device": "cpu"
+  }
+}

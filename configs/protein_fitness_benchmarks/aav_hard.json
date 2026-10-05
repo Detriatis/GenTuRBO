@@ -1,0 +1,32 @@
+{
+  "name": "aav_hard",
+  "benchmark": "arxiv_2501_19200_limited_data_protein_fitness",
+  "protein": "AAV",
+  "training_subset": {
+    "size": 3448,
+    "normalized_fitness_median": 0.27,
+    "normalized_fitness_range": [0.0, 0.33],
+    "definition": "Sequences below the 30th fitness percentile of the full DMS dataset, with at least 7 mutations required to reach any sequence in the 99th fitness percentile.",
+    "fitness_percentile_range": [0, 30],
+    "min_mutations_to_99th_percentile": 7,
+    "training_only": true
+  },
+  "full_dms": {
+    "size": 44156,
+    "labels_for_training": false,
+    "y_min": null,
+    "y_max": null
+  },
+  "oracle": {
+    "name": "kirjner_2023_1d_cnn",
+    "evaluation_only": true,
+    "model_path": null,
+    "input_encoding": "one_hot",
+    "trained_on_full_dms_size": 44156
+  },
+  "metrics": [
+    "median_normalized_fitness",
+    "diversity",
+    "novelty"
+  ]
+}

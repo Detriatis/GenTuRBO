@@ -1,0 +1,25 @@
+{
+  "base_config": "gfp_medium.json",
+  "time_max": 0.95,
+  "tr_mean": 0.5,
+  "checkpoint": "configs/checkpoints/protein_evodiff_d3pm_38M_uniform_aav28.pt",
+  "config": "configs/sample/protein_evodiff_d3pm_38M_uniform_aav28.json",
+  "benchmark_task": "aav_medium",
+  "protein_objective": "aav_medium",
+  "protein_min_len": 28,
+  "protein_max_len": 28,
+  "reward": {
+    "name": "gfp_aav_cnn_oracle",
+    "protein": "AAV",
+    "benchmark_root": "benchmarks/gfp_aav",
+    "normalize": true,
+    "min_len": 28,
+    "max_len": 28,
+    "sequence_length": 28,
+    "device": "cuda"
+  },
+  "initial_batch_path": "benchmarks/gfp_aav/initial_archives/objects/94f03398b8707a73ee82e76c12be915fff21fc47e011657e96c8487d42cf6599.jsonl.gz",
+  "al_onehot_max_len": 28,
+  "plot_label": "AAV Medium TR + GP Matched Tanimoto",
+  "samples_out": "runs/protein_design_v1/pilots/tanimoto_matched_v1/cells/aav_medium/tr_gp/seed0/samples.jsonl.gz"
+}

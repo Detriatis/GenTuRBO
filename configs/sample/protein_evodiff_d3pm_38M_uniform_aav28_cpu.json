@@ -1,0 +1,24 @@
+{
+  "process": "flow_mask_ctmc",
+  "process_cfg": {
+    "vocab_size": 20,
+    "seq_len": 28,
+    "mask_id": 20,
+    "interpolant": "uniform",
+    "temperature": 1.0,
+    "stop_when_filled": false,
+    "sample_time_schedule": "linear"
+  },
+  "model": "protein_evodiff_d3pm",
+  "model_cfg": {
+    "model_type": "d3pm_38m",
+    "d3pm_transition": "uniform",
+    "model_size": "38M",
+    "seq_len": 28,
+    "vocab_size": 20,
+    "mask_id": 20,
+    "device": "cpu",
+    "time_conditioning": "scaled"
+  },
+  "device": "cpu"
+}

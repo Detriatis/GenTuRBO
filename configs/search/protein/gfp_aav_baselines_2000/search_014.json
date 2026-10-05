@@ -1,0 +1,7 @@
+{
+  "base_config": "../bases/retained_unconditional_gfp.json",
+  "benchmark_task": "gfp_medium",
+  "protein_objective": "gfp_medium",
+  "plot_label": "GFP Medium Unconditional",
+  "samples_out": "runs/search/protein/gfp_aav_baselines_2000/search_014/samples.jsonl"
+}

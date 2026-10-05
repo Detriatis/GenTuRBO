@@ -1,0 +1,7 @@
+{
+  "base_config": "../tanimoto_matched_v1/gfp_medium.json",
+  "al_gp_noise_variance": 0.001,
+  "al_gp_fit_mean_and_noise_only": false,
+  "plot_label": "GFP Medium TR + GP Tanimoto Fixed Noise 0.001",
+  "samples_out": "runs/protein_design_v1/pilots/tanimoto_fixed_noise_v1/cells/gfp_medium/tr_gp/seed0/samples.jsonl.gz"
+}

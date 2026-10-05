@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "name": "evodiff",
+      "repository": "https://github.com/microsoft/evodiff",
+      "revision": "33206e99446f799ec11cf6e57d66ffaec837be91",
+      "role": "runtime",
+      "notes": "Frozen D3PM uniform 38M sequence generator. Installed by setup --protein; model weights are downloaded separately by --prefetch-models."
+    },
+    {
+      "name": "poli",
+      "repository": "https://github.com/MachineLearningLifeScience/poli",
+      "revision": "bc38921a51cbb28b835e34a785e830f3ef3b9eb7",
+      "role": "runtime",
+      "notes": "Black-box interface for LaMBO-2. Installed only in the Python 3.10 environment by setup --lambo2."
+    },
+    {
+      "name": "poli-baselines",
+      "repository": "https://github.com/MachineLearningLifeScience/poli-baselines",
+      "revision": "6b8930f22a51c0672d4e26afa68c2be6f9aa17c7",
+      "role": "runtime",
+      "notes": "LaMBO-2 adapter. Installed with --no-deps after the separately locked dependency closure; its upstream unpinned poli dependency must not replace this pin."
+    },
+    {
+      "name": "holo-bench",
+      "repository": "https://github.com/prescient-design/holo-bench",
+      "revision": "4d94731017e63a73008c94a99a1bee87585bf9b0",
+      "role": "adapted-source",
+      "notes": "The Holo DiscreteEvolution algorithm is adapted in src/baselines/holo_genetic_algorithm.py. Upstream source: holo/optim/_discrete_evolution.py. The adaptation adds finite paid budgets and prepaid initial labels; no external Holo installation is needed."
+    },
+    {
+      "name": "flexs",
+      "repository": "https://github.com/samsinai/FLEXS",
+      "revision": "dd409167b5575b51967d325b4e48aef3577a505f",
+      "role": "adapted-source",
+      "notes": "AdaLead semantics are adapted in the sequence/protein proposal policy and src/sokoban/adalead_official.py. The retained no-recombination variant uses threshold parents, root-anchored rollout and a fixed surrogate-query budget. No FLEXS runtime installation is needed."
+    },
+    {
+      "name": "ggs",
+      "repository": "https://github.com/kirjner/GGS",
+      "revision": "033c543c44aa76655e4868bb71e5713c962401ea",
+      "role": "data",
+      "notes": "GFP/AAV data and pretrained CNN fitness oracles. Use scripts/download_gfp_aav_sources.py for checksum-checked source downloads. Exact approved task splits and initial labels are supplied in the companion artifact bundle."
+    },
+    {
+      "name": "boxoban-levels",
+      "repository": "https://github.com/google-deepmind/boxoban-levels",
+      "revision": "78011d8c86ad423bfb2e1005012393b4c3c24409",
+      "role": "data",
+      "notes": "Sokoban training levels. python -m sokoban.prepare --download validates ZIP SHA256 e2ca9eb749442c62c1f3b598df43b03b1849b299914ec9f6f6d6bf8a8ed693ed. Frozen generator and labelled initial boards are supplied in the companion artifact bundle."
+    },
+    {
+      "name": "proteingym",
+      "repository": "https://github.com/OATML-Markslab/ProteinGym",
+      "revision": "144fe22b07dfaeec2b366f2346203a9838a55b4c",
+      "role": "reference-data",
+      "notes": "The reference_files/DMS_substitutions.csv sequence mapping is used by scripts/prepare_gfp_aav_kermut_resources.py. Exact prepared GFP/AAV resources are supplied in the companion artifact bundle."
+    },
+    {
+      "name": "kermut",
+      "repository": "https://github.com/petergroth/kermut",
+      "revision": null,
+      "role": "adapted-source-and-data",
+      "notes": "The composite covariance is implemented in src/adapters/protein/kermut.py, with GenTuRBO constant mean and no optional zero-shot mean. The source archive revision was not recorded; no unverified revision is claimed. Reproduction uses the exact checksum-pinned prepared GFP/AAV NPZ resources in the companion bundle, not a download of the latest upstream data."
+    },
+    {
+      "name": "esm",
+      "repository": "https://github.com/facebookresearch/esm",
+      "revision": "fair-esm==2.0.0",
+      "role": "runtime",
+      "notes": "ESM2 mean-pooled protein embeddings. fair-esm 2.0.0 is pinned by the protein extra and lock. Prefetch uses esm2_t33_650M_UR50D including its contact-regression weights.",
+      "installation": {
+        "distribution": "fair-esm",
+        "version": "2.0.0",
+        "registry": "https://pypi.org/simple",
+        "sdist_url": "https://files.pythonhosted.org/packages/fc/fb/61ddfd2f058c298491d500b606808aab6729944da844fbe63cb7be405a9a/fair-esm-2.0.0.tar.gz",
+        "sdist_hash": "sha256:4ed34d4598ec75ed6550a4e581d023bf8d4a8375317ecba6269bb68135f80c85"
+      }
+    }
+  ]
+}

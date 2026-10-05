@@ -1,0 +1,12 @@
+{
+  "base_config": "../bases/retained_active_gfp.json",
+  "mixes_per_time": 24,
+  "candidate_strategy": "random",
+  "benchmark_task": "gfp_medium",
+  "protein_objective": "gfp_medium",
+  "initial_batch_path": "benchmarks/gfp_aav/initial_archives/objects/deccef8745dd17aa1b0148664d7c12c06f6d6d133469df4a06e2e861db1458c5.jsonl.gz",
+  "al_acquisition": "random",
+  "plot_label": "GFP Medium RT + Random",
+  "samples_out": "runs/search/protein/gfp_aav_baselines_2000/search_010/samples.jsonl",
+  "sample_only": false
+}

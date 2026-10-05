@@ -1,0 +1,18 @@
+{
+  "base_config": "retained_active.json",
+  "checkpoint": "configs/checkpoints/protein_evodiff_d3pm_38M_uniform_aav28.pt",
+  "config": "configs/sample/protein_evodiff_d3pm_38M_uniform_aav28.json",
+  "protein_min_len": 28,
+  "protein_max_len": 28,
+  "reward": {
+    "name": "gfp_aav_cnn_oracle",
+    "protein": "AAV",
+    "benchmark_root": "benchmarks/gfp_aav",
+    "normalize": true,
+    "min_len": 28,
+    "max_len": 28,
+    "sequence_length": 28,
+    "device": "cuda"
+  },
+  "al_onehot_max_len": 28
+}

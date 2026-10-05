@@ -1,0 +1,71 @@
+{
+  "process": "flow_mask_ctmc",
+  "process_cfg": {
+    "vocab_size": 20,
+    "seq_len": 128,
+    "mask_id": null,
+    "interpolant": "uniform",
+    "corrupt_invalid": false,
+    "corrupt_invalid_mode": "both",
+    "transition_mask_path": null,
+    "mask_loss_only": false,
+    "time_sampler": "beta",
+    "time_sampler_cfg": {
+      "alpha": 2.0,
+      "beta": 1.0
+    },
+    "sample_time_schedule": "log",
+    "sample_time_schedule_cfg": {
+      "min_frac": 1e-3,
+      "bias": "end"
+    }
+  },
+  "model": "conv1d_denoiser",
+  "model_cfg": {
+    "vocab_size": 20,
+    "seq_len": 128,
+    "model_dim": 256,
+    "num_layers": 5,
+    "kernel_size": 9,
+    "dilation": 1,
+    "dropout": 0.1,
+    "pos_emb": "none"
+  },
+  "dataset": "ehrlich_markov",
+  "dataset_cfg": {
+    "instance_cfg": {
+      "vocab_size": 20,
+      "seq_len": 128,
+      "motif_count": 4,
+      "motif_len": 4,
+      "quantization": 4,
+      "bandwidth": 8,
+      "temperature": 0.5
+    },
+    "instance_seed": 0,
+    "batch_size": 128,
+    "seed": 0
+  },
+  "steps": 50000,
+  "steps_per_epoch": 1000,
+  "avg_loss_window": 100,
+  "eval_every_epochs": 2,
+  "eval_num_samples": 256,
+  "eval_steps": 200,
+  "lr": 2e-4,
+  "optimiser": "adamw",
+  "optimiser_cfg": {
+    "weight_decay": 0.01
+  },
+  "device": "mps",
+  "log_every": 100,
+  "seed": 0,
+  "checkpoint_every": 1000,
+  "resume_if_checkpoint_exists": true,
+  "wipe_run_dir": false,
+  "run_root": "runs",
+  "run_name": "trained_ctmc512",
+  "tensorboard": true,
+  "profile": true,
+  "profile_every": 1
+}

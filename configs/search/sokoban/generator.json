@@ -1,0 +1,4 @@
+{
+  "base_config": "base.json",
+  "output": "runs/sokoban/generator"
+}

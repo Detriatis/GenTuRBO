@@ -1,0 +1,7 @@
+{
+  "base_config": "../bases/retained_unconditional_aav.json",
+  "benchmark_task": "aav_hard",
+  "protein_objective": "aav_hard",
+  "plot_label": "AAV Hard Unconditional",
+  "samples_out": "runs/search/protein/gfp_aav_baselines_2000/search_008/samples.jsonl"
+}

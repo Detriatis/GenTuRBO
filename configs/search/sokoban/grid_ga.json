@@ -1,0 +1,9 @@
+{
+  "base_config": "base.json",
+  "output": "runs/sokoban/grid_ga",
+  "methods": [
+    "grid_ga"
+  ],
+  "oracle_batch": 8,
+  "ga_editable_region": "all"
+}

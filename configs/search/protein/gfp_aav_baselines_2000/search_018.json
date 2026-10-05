@@ -1,0 +1,22 @@
+{
+  "base_config": "../bases/retained_active_aav.json",
+  "mixes_per_time": 24,
+  "candidate_strategy": "trust_region",
+  "tr_type": "ScalarTrustRegion",
+  "tr_sampling": "fixed_budget",
+  "tr_domain": "time",
+  "time_min": 0.0,
+  "time_max": 0.95,
+  "tau_success": 1,
+  "tau_failure": 1,
+  "tr_mean": 0.5,
+  "region_expand_scalar": 1.5,
+  "region_shrink_scalar": 0.75,
+  "benchmark_task": "aav_medium",
+  "protein_objective": "aav_medium",
+  "initial_batch_path": "benchmarks/gfp_aav/initial_archives/objects/94f03398b8707a73ee82e76c12be915fff21fc47e011657e96c8487d42cf6599.jsonl.gz",
+  "al_acquisition": "random",
+  "plot_label": "AAV Medium TR + Random",
+  "samples_out": "runs/search/protein/gfp_aav_baselines_2000/search_018/samples.jsonl",
+  "sample_only": false
+}

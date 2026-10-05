@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "study": "ehrlich_kernel_v1",
+  "workflow": "static",
+  "datasets_config": "configs/experiments/ehrlich_kernel_v1/datasets.json",
+  "run_dir": "runs/ehrlich_kernel_v1/static",
+  "results_dir": "results/ehrlich_kernel_v1/static",
+  "conditions": [
+    "l128_q4_k4",
+    "l256_q4_k8"
+  ],
+  "split": {
+    "strategy": "leave_one_source_seed_out",
+    "heldout_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "train_size": 512,
+    "test_size": 256,
+    "top_k": 8,
+    "random_seed": 20260716
+  },
+  "gp": {
+    "device": "cpu",
+    "dtype": "double",
+    "jitter": 0.0001,
+    "noise_mode": "fitted",
+    "outputscale": 1.0,
+    "learn_outputscale": false,
+    "trainable_parameters": [
+      "constant_mean",
+      "likelihood_noise"
+    ]
+  },
+  "kernels": [
+    {
+      "name": "onehot_tanimoto",
+      "type": "onehot_tanimoto",
+      "parameters": {},
+      "privileged": false
+    },
+    {
+      "name": "spaced_pair_w32",
+      "type": "spaced_pair",
+      "parameters": {
+        "window": 32
+      },
+      "privileged": false
+    },
+    {
+      "name": "spaced_pair_w48",
+      "type": "spaced_pair",
+      "parameters": {
+        "window": 48
+      },
+      "privileged": false
+    },
+    {
+      "name": "local_spaced_trigram_w16",
+      "type": "local_spaced_trigram",
+      "parameters": {
+        "window": 16
+      },
+      "privileged": false
+    },
+    {
+      "name": "pair_w48_trigram_w16_additive",
+      "type": "mixed_window_spaced_ngram_additive",
+      "parameters": {
+        "orders": [
+          2,
+          3
+        ],
+        "windows": [
+          48,
+          16
+        ],
+        "weights": [
+          0.5,
+          0.5
+        ]
+      },
+      "privileged": false
+    },
+    {
+      "name": "task_aware_spaced_ngram",
+      "type": "spaced_ngram",
+      "parameters": {
+        "patterns": "instance"
+      },
+      "privileged": true
+    }
+  ],
+  "metrics": [
+    "simple_regret",
+    "top_k_recall",
+    "rmse",
+    "spearman",
+    "nlpd",
+    "coverage_90",
+    "fit_seconds",
+    "inference_seconds",
+    "failure_count"
+  ],
+  "comparison": {
+    "baseline_kernel": "onehot_tanimoto",
+    "cross_condition_summary": "within_condition_rank_and_paired_delta",
+    "do_not_pool_raw_metrics": [
+      "rmse",
+      "simple_regret"
+    ]
+  }
+}

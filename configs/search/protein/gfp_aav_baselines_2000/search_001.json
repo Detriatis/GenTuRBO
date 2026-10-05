@@ -1,0 +1,12 @@
+{
+  "base_config": "../bases/retained_active_gfp.json",
+  "mixes_per_time": 256,
+  "candidate_strategy": "random",
+  "benchmark_task": "gfp_hard",
+  "protein_objective": "gfp_hard",
+  "initial_batch_path": "benchmarks/gfp_aav/initial_archives/objects/c71047a3ccddde458ecbf8c638f1c63a90582282688ce110f7211acf2ef53730.jsonl.gz",
+  "al_acquisition": "batched_expected_improvement",
+  "plot_label": "GFP Hard RT + GP",
+  "samples_out": "runs/search/protein/gfp_aav_baselines_2000/search_001/samples.jsonl",
+  "sample_only": false
+}
